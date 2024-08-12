@@ -5,6 +5,16 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Here is the list of posts!</h1>
+    <h2>Here is the list of posts!</h2>
+
+    {% for post in posts %}
+        <hr>
+        <div style="text-align: center">
+            <h4>Title: {{ post.title }} - Author: {{ post.author }}</h4>
+            <h6>ISBN: {{ post.isbn }}, Created at: {{ post.date_published }}</h6>
+        </div>
+
+    {% endfor %}
+
 </body>
 </html>
