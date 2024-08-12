@@ -42,3 +42,9 @@ def book_create_add(request, book_id: int = 0):
 
     context['form'] = form
     return render(request=request, template_name='book_form.html', context=context)
+
+
+def book_detail(request, book_id: int):
+    context = dict()
+    context['book'] = get_object_or_404(Book, id=book_id)
+    return render(request, 'book_detail.html', context)
