@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Book detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>
-        Here is more detail about the book:
-    </h1>
-    {{ post.title }}
+<body class=" bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex">
+
+
+
+
+    <div class="flex flex-row items-center justify-center rounded-lg hover:bg-black/70 transition cursor-pointer backdrop-blur-lg bg-black/30 gap-6 text-white font-bold p-10 flex flex-col  max-w-80">
+        <span class="block text-2xl"> Here is more detail about the book:</span>
+
+        <strong class="block text-xl text-center text-yellow-500">{{ book.title }}</strong>
+
+        <span class="block w-full text-center text-yellow-500 text-lg">author: {{ book.author }}</span>
+        <hr>
+        <span class="block w-full text-center text-yellow-500 text-lg">isbn: {{ book.isbn }}</span>
+        <hr>
+        <span class="block w-full text-center text-yellow-500 text-lg">date published: <br> {{ book.date_published }}</span>
+        <span class="block w-full text-center text-yellow-500 text-lg">last edit: <br> {{ book.date_edited }}</span>
+
+    </div>
+
+
 </body>
 </html>
