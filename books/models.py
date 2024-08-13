@@ -8,6 +8,8 @@ class Author(models.Model):
     age = models.PositiveIntegerField()
     books_count = models.PositiveIntegerField(null=True)
 
+    img_field = models.ImageField(verbose_name="Image", upload_to='post-images/', null=True, blank=True)
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -22,4 +24,3 @@ class Book(models.Model):
     date_edited = models.DateTimeField(null=True, auto_now=True)
 
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
-

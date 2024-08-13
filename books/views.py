@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Book
+from .models import Book,Author
 from .forms import PostBook, CreateAuthor
 
 
@@ -61,12 +61,19 @@ def book_delete(request, book_id):
 
 def add_author(request):
     context = dict()
-    form = CreateAuthor(request.POST or None)
+    form = CreateAuthor()
 
     if request.method == "POST":
+        form = CreateAuthor(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
 
     context['form'] = form
     return render(request=request, template_name='auther_add.html', context=context)
+
+
+def detail_author(request, author_id):
+    context = dict()
+    context['author'] = get_object_or_404(Author, id=author_id)
+    return render(request=request, template_name='author_detail.html', context=context)
