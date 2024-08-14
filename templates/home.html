@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+{% extends 'base.html' %}
 
-    <style>
-        #create_btn{
-            text-decoration:none;
-            text-align: center;
-            align-content: center;
-            width: 70px;
-            height: 30px;
-            font-size: 1.2rem;
-            padding: 3px;
-            border: 2px solid #8C82FC;
-            background: #fff;
-            color: #8C82FC;
-            border-radius: 40px;
-            transition: all .35s;
-        }
+{% block title %}
+	<title>Home</title>
+{% endblock %}
 
-        #create_btn:hover{
-            background: #8C82FC;
-            color: #fff;
-        }
 
-    </style>
-     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-    <body  class=" bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+{% block content %}
 
             <a class= "text-2xl text-slate-300" href="{% url 'create' %}">+</a>
         <div class="mt-10 text-red-500 text-8xl text-center grid grid-cols-4 gap-10">
@@ -37,19 +14,18 @@
 
                   <div class="rounded-lg hover:bg-black/70 transition cursor-pointer backdrop-blur-lg bg-black/30 gap-6 text-white font-bold p-10 flex flex-col  max-w-80">
                     <a href="{% url 'detail' post.id %}">
-                        <strong class="block text-xl">{{ post.title }}</strong>
+                        <strong class="block text-2xl w-full text-yellow-500">{{ post.title }}</strong>
                         {% if post.author %}
                             <span class="block w-full text-center text-white text-lg">Main Author:
                                 <a href="{% url 'author_detail' post.author_id %}" class="mt-0">
-                                <div class="flex flex-row items-center content-center inline-block rounded-r-lg bg-indigo-500 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-indigo-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-indigo-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-indigo-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0">
-                                    {% if post.author.img_field %}
-                                        <img class="w-10 h-10 rounded-l-lg" src="{{ post.author.img_field.url }}" style="max-height:300px" alt="could not load the pic">
-                                    {% endif %}
-                                    <span class="block w-full text-center text-yellow-500 text-lg">{{ post.author.first_name }} {{ post.author.last_name }}</span>
-                                </div>
-                            </a>
+                                    <div class="flex flex-row items-center content-center inline-block rounded-r-lg rounded-l-lg bg-indigo-500 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-indigo-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-indigo-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-indigo-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0">
+                                        {% if post.author.img_field %}
+                                            <img class="w-10 h-10 rounded-l-lg" src="{{ post.author.img_field.url }}" style="max-height:300px" alt="could not load the pic">
+                                        {% endif %}
+                                        <span class="block w-full text-center text-yellow-500 text-lg">{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                                    </div>
+                                </a>
                             </span>
-
                         {% endif %}
                         <span class="text-center text-white block w-full text-xl">isbn:
                             <span class="block w-full text-center text-yellow-500 text-lg">{{ post.isbn }}</span>
@@ -74,5 +50,5 @@
                   </div>
               {% endfor %}
         </div>
-    </body>
-</html>
+
+{% endblock %}

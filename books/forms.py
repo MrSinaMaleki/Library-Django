@@ -7,11 +7,11 @@ class PostBook(forms.ModelForm):
         model = Book
         # fields = ["title", "author", "isbn"]
         exclude = ["date_published", "date_edited"]
-        # widgets = {
-        #     "title": forms.TextInput(attrs={"class": "form__field"}),
-        #     "author": forms.TextInput(attrs={"class": "form__field"}),
-        #     "isbn": forms.TextInput(attrs={"class": "form__field"})
-        # }
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form__field"}),
+            # "author": forms.TextInput(attrs={"class": "form__field"}),
+            "isbn": forms.TextInput(attrs={"class": "form__field"})
+        }
 
 
 class CreateAuthor(forms.ModelForm):
@@ -19,8 +19,8 @@ class CreateAuthor(forms.ModelForm):
         model = Author
         # fields = ["title", "author", "isbn"]
         exclude = ["books_count"]
-        # widgets = {
-        #     "title": forms.TextInput(attrs={"class": "form__field"}),
-        #     "author": forms.TextInput(attrs={"class": "form__field"}),
-        #     "isbn": forms.TextInput(attrs={"class": "form__field"})
-        # }
+        widgets = {
+            "first_name": forms.TextInput(attrs={"class": "form__field"}),
+            "last_name": forms.TextInput(attrs={"class": "form__field"}),
+            "age": forms.TextInput(attrs={"class": "form__field"})
+        }

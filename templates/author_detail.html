@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+
+{% block title %}
     <title>Author detail</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class=" bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex">
+{% endblock %}
 
-
-
-
+{% block content %}
     <div class="flex flex-row items-center justify-center rounded-lg hover:bg-black/70 transition cursor-pointer backdrop-blur-lg bg-black/30 gap-6 text-white font-bold p-10 flex flex-col  max-w-80">
-        <img class="rounded-full border border-slate-300 hover:border-slate-400" src="{{ author.img_field.url }}">
+          <img class="rounded-full border border-slate-300 hover:border-slate-400" src="{{ author.img_field.url }}">
 
-        <span class="text-center text-white block w-full text-xl">Full Name:
-            <strong class="block text-xl text-center text-yellow-500">{{ author.first_name }} {{ author.last_name }}</strong>
-        </span>
+          <span class="text-center text-white block w-full text-xl">Full Name:
+              <strong class="block text-xl text-center text-yellow-500">{{ author.first_name }} {{ author.last_name }}</strong>
+          </span>
 
-    <span class="text-center text-white block w-full text-xl">Age:
-        <span class="block w-full text-center text-yellow-500 text-lg">{{ author.age }}</span>
-    </span>
+          <span class="text-center text-white block w-full text-xl">Age:
+              <span class="block w-full text-center text-yellow-500 text-lg">{{ author.age }}</span>
+          </span>
 
-    <span class="text-center text-white block w-full text-xl">Books written:
-        <span class="block w-full text-center text-yellow-500 text-lg">{{ author.books_count }}</span>
-    </span>
+          <span class="text-center text-white block w-full text-xl">Books written:
+              <span class="block w-full text-center text-yellow-500 text-lg">{{ author.book }}</span>
+          </span>
 
     </div>
-
-
-</body>
-</html>
+{% endblock %}
